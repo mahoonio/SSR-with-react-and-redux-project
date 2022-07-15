@@ -7043,7 +7043,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 var express = __webpack_require__(54);
-var react = __webpack_require__(16);
+var React = __webpack_require__(16);
 var renderToString = __webpack_require__(110).renderToString;
 var Home = __webpack_require__(121).default;
 var app = express();

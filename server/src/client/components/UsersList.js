@@ -23,4 +23,9 @@ class UsersList extends Component {
 function mapStateToProps(state) {
   return { users: state.users };
 }
+function loadData() {
+  console.log('im trying to load some data');
+}
+
+export { loadData };
 export default connect(mapStateToProps, { fetchUsers })(UsersList);

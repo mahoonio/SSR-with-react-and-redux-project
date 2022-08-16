@@ -80,6 +80,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -96,15 +98,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // syntax for using react-router-config which is a subpackage of react-router
 // for server side rendering purposes.(deciding which components we want to show without rendering the app)
-exports.default = [{
+exports.default = [_extends({}, _HomePage2.default, {
   path: '/',
-  component: _HomePage2.default,
   exact: true
-}, {
-  loadData: _UsersListPage.loadData,
-  path: '/users',
-  component: _UsersListPage2.default
-}];
+}), _extends({}, _UsersListPage2.default, { path: '/users' })];
 
 /***/ }),
 /* 2 */
@@ -421,7 +418,7 @@ var Home = function Home() {
   );
 };
 
-exports.default = Home;
+exports.default = { component: Home };
 
 /***/ }),
 /* 20 */
@@ -433,7 +430,6 @@ exports.default = Home;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.loadData = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -504,8 +500,10 @@ function loadData(store) {
   return store.dispatch((0, _actions.fetchUsers)());
 }
 
-exports.loadData = loadData;
-exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _actions.fetchUsers })(UsersList);
+exports.default = {
+  component: (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _actions.fetchUsers })(UsersList),
+  loadData: loadData
+};
 
 /***/ })
 /******/ ]);

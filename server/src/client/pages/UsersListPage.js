@@ -27,5 +27,7 @@ function loadData(store) {
   return store.dispatch(fetchUsers());
 }
 
-export { loadData };
-export default connect(mapStateToProps, { fetchUsers })(UsersList);
+export default {
+  component: connect(mapStateToProps, { fetchUsers })(UsersList),
+  loadData,
+};

@@ -213,6 +213,7 @@ app.get('*', function (req, res) {
     var route = _ref.route;
 
     return route.loadData && route.loadData(store);
+    // returns promises of routes that need data loading
   });
 
   Promise.all(promises).then(function () {

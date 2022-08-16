@@ -10,6 +10,7 @@ app.get('*', (req, res) => {
   const store = createStore();
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
     return route.loadData && route.loadData(store);
+    // returns promises of routes that need data loading
   });
 
   Promise.all(promises).then(() => {

@@ -190,7 +190,7 @@ var _renderer = __webpack_require__(9);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(15);
+var _createStore = __webpack_require__(16);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
@@ -261,6 +261,10 @@ var _reactRedux = __webpack_require__(2);
 
 var _reactRouterConfig = __webpack_require__(4);
 
+var _serializeJavascript = __webpack_require__(15);
+
+var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (req, store) {
@@ -277,7 +281,7 @@ exports.default = function (req, store) {
       )
     )
   ));
-  return '\n  <html>\n    <head></head>\n    <body>\n      <div id="root">' + content + '</div>\n      <script>\n      window.INITIAL_STATE = ' + JSON.stringify(store.getState()) + '\n      </script>\n      <script src="bundle.js"></script>\n    </body>\n  </html>\n  ';
+  return '\n  <html>\n    <head></head>\n    <body>\n      <div id="root">' + content + '</div>\n      <script>\n      window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n      </script>\n      <script src="bundle.js"></script>\n    </body>\n  </html>\n  ';
 };
 
 /***/ }),
@@ -371,7 +375,7 @@ var UsersList = function (_Component) {
   _createClass(UsersList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // this.props.fetchUsers();
+      this.props.fetchUsers(); //??
     }
   }, {
     key: 'renderUsers',
@@ -423,6 +427,12 @@ module.exports = require("axios");
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports) {
+
+module.exports = require("serialize-javascript");
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -434,11 +444,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(5);
 
-var _reduxThunk = __webpack_require__(16);
+var _reduxThunk = __webpack_require__(17);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reducers = __webpack_require__(17);
+var _reducers = __webpack_require__(18);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -450,13 +460,13 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -468,7 +478,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(5);
 
-var _usersReducer = __webpack_require__(18);
+var _usersReducer = __webpack_require__(19);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
@@ -479,7 +489,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

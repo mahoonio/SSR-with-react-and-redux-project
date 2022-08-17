@@ -37191,7 +37191,7 @@ var UsersList = function (_Component) {
   _createClass(UsersList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // this.props.fetchUsers();
+      this.props.fetchUsers(); //??
     }
   }, {
     key: 'renderUsers',

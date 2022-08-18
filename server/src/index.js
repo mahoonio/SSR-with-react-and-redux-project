@@ -6,6 +6,8 @@ import { matchRoutes } from 'react-router-config';
 import Routes from './client/Routes';
 import proxy from 'express-http-proxy';
 const app = express();
+
+// this means if the req comes from /api send it to api through proxy
 app.use(
   '/api',
   proxy('http://react-ssr-api.herokuapp.com', {

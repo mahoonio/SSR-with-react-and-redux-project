@@ -160,10 +160,16 @@ module.exports = require("react-router-config");
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-router-dom");
+module.exports = require("react-redux");
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-dom");
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -203,12 +209,6 @@ exports.default = [_extends({}, _App2.default, {
 })];
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-redux");
-
-/***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
@@ -237,7 +237,7 @@ var _createStore2 = _interopRequireDefault(_createStore);
 
 var _reactRouterConfig = __webpack_require__(2);
 
-var _Routes = __webpack_require__(4);
+var _Routes = __webpack_require__(5);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
@@ -304,13 +304,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _server = __webpack_require__(11);
 
-var _reactRouterDom = __webpack_require__(3);
+var _reactRouterDom = __webpack_require__(4);
 
-var _Routes = __webpack_require__(4);
+var _Routes = __webpack_require__(5);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _reactRedux = __webpack_require__(5);
+var _reactRedux = __webpack_require__(3);
 
 var _reactRouterConfig = __webpack_require__(2);
 
@@ -334,7 +334,7 @@ exports.default = function (req, store) {
       )
     )
   ));
-  return '\n  <html>\n    <head></head>\n    <body>\n      <div id="root">' + content + '</div>\n      <script>\n      window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n      </script>\n      <script src="bundle.js"></script>\n    </body>\n  </html>\n  ';
+  return '\n  <html>\n    <head>\n    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">\n    </head>\n    <body>\n      <div id="root">' + content + '</div>\n      <script>\n      window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n      </script>\n      <script src="bundle.js"></script>\n    </body>\n  </html>\n  ';
 };
 
 /***/ }),
@@ -406,9 +406,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(3);
+var _reactRouterDom = __webpack_require__(4);
 
-var _reactRedux = __webpack_require__(5);
+var _reactRedux = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -426,27 +426,43 @@ var Header = function Header(_ref) {
     'Login'
   );
   return _react2.default.createElement(
-    'div',
+    'nav',
     null,
     _react2.default.createElement(
-      _reactRouterDom.Link,
-      { to: '/' },
-      'React SSR'
-    ),
-    _react2.default.createElement(
       'div',
-      null,
+      { className: 'nav-wrapper' },
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: '/users' },
-        'Users'
+        { to: '/', className: 'brand-logo' },
+        'React SSR'
       ),
       _react2.default.createElement(
-        _reactRouterDom.Link,
-        { to: '/admins' },
-        'Admins'
-      ),
-      authButton
+        'ul',
+        { className: 'right' },
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/users' },
+            'Users'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/admins' },
+            'Admins'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          authButton
+        )
+      )
     )
   );
 };
@@ -478,18 +494,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Home = function Home() {
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'center-align', style: { marginTop: '200px' } },
     _react2.default.createElement(
-      'div',
+      'h2',
       null,
-      'hello.i\'m the best home component'
+      'WELCOME'
     ),
     _react2.default.createElement(
-      'button',
-      { onClick: function onClick() {
-          return console.log('hi there.');
-        } },
-      'press me'
+      'p',
+      { style: { fontSize: '22px' } },
+      'checkout these awsome features around server side rendering. built with react,redux,nodejs and express'
+    ),
+    _react2.default.createElement(
+      'p',
+      { style: { fontSize: '20px' } },
+      'project by mahan mahmoodi - github page : mahoonio'
+    ),
+    _react2.default.createElement(
+      'p',
+      { style: { fontSize: '18px' } },
+      'the project was developed for learning purposes with inspiration of react ssr course of stephen grider. 25/08/2022'
     )
   );
 };
@@ -513,7 +537,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(5);
+var _reactRedux = __webpack_require__(3);
 
 var _actions = __webpack_require__(1);
 
@@ -555,7 +579,7 @@ var UsersList = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: { margin: '20px' } },
         'Here\'s a big list of users:',
         _react2.default.createElement(
           'ul',

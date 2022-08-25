@@ -12,7 +12,7 @@ class UsersList extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ margin: '20px' }}>
         Here's a big list of users:
         <ul>{this.renderUsers()}</ul>
       </div>

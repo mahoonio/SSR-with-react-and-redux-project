@@ -408,6 +408,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(3);
 
+var _reactRedux = __webpack_require__(5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Header = function Header() {
@@ -421,8 +423,13 @@ var Header = function Header() {
     )
   );
 };
+var mapStateToProps = function mapStateToProps(_ref) {
+  var auth = _ref.auth;
 
-exports.default = Header;
+  //the function input is redux global state.auth
+  return { auth: auth };
+};
+exports.default = (0, _reactRedux.connect)()(Header);
 
 /***/ }),
 /* 14 */
@@ -538,7 +545,7 @@ var UsersList = function (_Component) {
 function mapStateToProps(state) {
   // this means mapping redux state to props of this component
   return { users: state.users };
-}
+} //props <- redux global state(store)
 function loadData(store) {
   return store.dispatch((0, _actions.fetchUsers)());
 }

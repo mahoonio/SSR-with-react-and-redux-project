@@ -6,3 +6,12 @@ export const fetchUsers = () => async (dispatch, getState, api) => {
   //for other requests to other regular api endpoints we should use the default instance.
   dispatch({ type: FETCH_USERS, payload: res });
 };
+
+export const FETCH_CURRENT_USER = 'fetch_current_user';
+export const fetchCurrentUser = () => async (dispatch, getState, api) => {
+  const res = await api.get('/current_user');
+  dispatch({
+    type: FETCH_CURRENT_USER,
+    payload: res,
+  });
+};

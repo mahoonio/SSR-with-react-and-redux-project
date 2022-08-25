@@ -168,6 +168,40 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
   }();
 };
 
+var FETCH_CURRENT_USER = exports.FETCH_CURRENT_USER = 'fetch_current_user';
+var fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {
+  return function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch, getState, api) {
+      var res;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return api.get('/current_user');
+
+            case 2:
+              res = _context2.sent;
+
+              dispatch({
+                type: FETCH_CURRENT_USER,
+                payload: res
+              });
+
+            case 4:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, undefined);
+    }));
+
+    return function (_x4, _x5, _x6) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {

@@ -1,9 +1,10 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
+import Header from './components/Header';
 const App = ({ route }) => {
   return (
     <div>
-      <h1>Im a Header</h1>
+      <Header />
       <div>{renderRoutes(route.routes)}</div>
     </div>
   );

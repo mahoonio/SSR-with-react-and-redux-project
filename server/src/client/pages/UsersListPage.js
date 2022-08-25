@@ -21,6 +21,7 @@ class UsersList extends Component {
 }
 
 function mapStateToProps(state) {
+  // this means mapping redux state to props of this component
   return { users: state.users };
 }
 function loadData(store) {

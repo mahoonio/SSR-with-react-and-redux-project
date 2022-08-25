@@ -412,7 +412,10 @@ var _reactRedux = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Header = function Header() {
+var Header = function Header(_ref) {
+  var auth = _ref.auth;
+
+  console.log('the auth status : ', auth);
   return _react2.default.createElement(
     'div',
     null,
@@ -423,13 +426,13 @@ var Header = function Header() {
     )
   );
 };
-var mapStateToProps = function mapStateToProps(_ref) {
-  var auth = _ref.auth;
+var mapStateToProps = function mapStateToProps(_ref2) {
+  var auth = _ref2.auth;
 
   //the function input is redux global state.auth
   return { auth: auth };
 };
-exports.default = (0, _reactRedux.connect)()(Header);
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
 
 /***/ }),
 /* 14 */
@@ -676,7 +679,7 @@ exports.default = function () {
 
   switch (action.type) {
     case _actions.FETCH_CURRENT_USER:
-      return action.payload.data;
+      return action.payload.data || false;
     default:
       return state;
   }

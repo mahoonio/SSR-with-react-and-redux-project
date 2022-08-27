@@ -193,6 +193,10 @@ var _HomePage = __webpack_require__(14);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
+var _NotFoundPage = __webpack_require__(24);
+
+var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
+
 var _UsersListPage = __webpack_require__(15);
 
 var _UsersListPage2 = _interopRequireDefault(_UsersListPage);
@@ -205,7 +209,7 @@ exports.default = [_extends({}, _App2.default, {
   routes: [_extends({}, _HomePage2.default, {
     path: '/',
     exact: true
-  }), _extends({}, _UsersListPage2.default, { path: '/users' })]
+  }), _extends({}, _UsersListPage2.default, { path: '/users' }), _extends({}, _NotFoundPage2.default)]
 })];
 
 /***/ }),
@@ -744,6 +748,39 @@ module.exports = require("axios");
 /***/ (function(module, exports) {
 
 module.exports = require("express-http-proxy");
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NotFoundPage = function NotFoundPage() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h1",
+      { className: "center-align" },
+      "Ooops, Page not found."
+    )
+  );
+};
+
+exports.default = {
+  component: NotFoundPage
+};
 
 /***/ })
 /******/ ]);

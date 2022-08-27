@@ -1,5 +1,6 @@
 import React from 'react';
-const NotFoundPage = () => {
+const NotFoundPage = ({ staticContext = {} }) => {
+  staticContext.notFound = true;
   return (
     <div>
       <h1 className="center-align">Ooops, Page not found.</h1>

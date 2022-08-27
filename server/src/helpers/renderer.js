@@ -6,10 +6,13 @@ import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
 
-export default (req, store) => {
+export default (req, store, context) => {
+  // this context gets passed to components as a prop called staticContext
+  //and we can set anything like errors and redirects and communicate with
+  //the renderer server
   const content = renderToString(
     <Provider store={store}>
-      <StaticRouter location={req.path} context={{}}>
+      <StaticRouter location={req.path} context={context}>
         <div>{renderRoutes(Routes)}</div>
       </StaticRouter>
     </Provider>

@@ -5,15 +5,16 @@ class AdminsListPage extends Component {
   componentDidMount() {
     this.props.fetchAdmins();
   }
-  renderAdmins = (admins) => {
+  renderAdmins(admins) {
     return admins.map((admin) => {
       return <li key={admin.id}>{admin.name}</li>;
     });
-  };
+  }
 
   render() {
     return (
-      <div>
+      <div style={{ margin: '20px' }}>
+        <h1>Protected list of admins</h1>
         <ul>{this.renderAdmins(this.props.admins)}</ul>
       </div>
     );
@@ -24,6 +25,6 @@ const mapStateToProps = ({ admins }) => {
   return { admins };
 };
 export default {
-  Component: connect(mapStateToProps, { fetchAdmins })(AdminsListPage),
+  component: connect(mapStateToProps, { fetchAdmins })(AdminsListPage),
   loadData: ({ dispatch }) => dispatch(fetchAdmins()),
 };

@@ -307,6 +307,12 @@ app.get('*', function (req, res) {
 
     return route.loadData && route.loadData(store);
     // returns promises of routes that need data loading
+  }).map(function (promise) {
+    if (promise) {
+      return new Promise(function (resolve, reject) {
+        promise.then(resolve).catch(resolve);
+      });
+    }
   });
 
   Promise.all(promises).then(function () {

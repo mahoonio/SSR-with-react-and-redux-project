@@ -40272,6 +40272,9 @@ exports.default = function (ChildComponent) {
               'Loading...'
             );
           case false:
+            // this redirect tag besides redirecting in browser assigns
+            // 3 properties to static context object that
+            // we can use them to redirect on server side too.
             return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
 
           default:

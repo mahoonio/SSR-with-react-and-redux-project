@@ -318,6 +318,10 @@ app.get('*', function (req, res) {
   Promise.all(promises).then(function () {
     var context = {};
     var content = (0, _renderer2.default)(req, store, context);
+
+    if (context.url) {
+      return res.redirect(301, context.url);
+    }
     if (context.notFound) {
       res.status(404);
     }
@@ -1013,6 +1017,9 @@ exports.default = function (ChildComponent) {
               'Loading...'
             );
           case false:
+            // this redirect tag besides redirecting in browser assigns
+            // 3 properties to static context object that
+            // we can use them to redirect on server side too.
             return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
 
           default:

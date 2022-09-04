@@ -38,7 +38,7 @@ app.get('*', (req, res) => {
     const content = renderer(req, store, context);
 
     if (context.url) {
-      //for 404 not found pages
+      // handling redirects when there is an error
       return res.redirect(301, context.url);
     }
     if (context.notFound) {
